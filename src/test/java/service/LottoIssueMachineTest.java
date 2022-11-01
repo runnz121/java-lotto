@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import domain.Lottos;
+import domain.AutoLottos;
 import domain.Money;
 
 class LottoIssueMachineTest {
@@ -28,9 +28,9 @@ class LottoIssueMachineTest {
 
         Money purchaseMoney = Money.from(money);
 
-        Lottos createLottos = lottoIssueMachine.purchaseLotto(purchaseMoney);
+        AutoLottos createAutoLottos = lottoIssueMachine.purchaseLotto(purchaseMoney);
 
-        assertThat(createLottos.getLottoNumbers().size()).isEqualTo(count);
+        assertThat(createAutoLottos.getAutoLottoNumbers().size()).isEqualTo(count);
 
     }
 

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import domain.Lotto;
-import domain.Lottos;
+import domain.AutoLottos;
 import domain.Money;
 
 class LottoGenerator1Test {
@@ -41,9 +41,9 @@ class LottoGenerator1Test {
     @DisplayName("로또가 갯수에 맞게 구입되었는지 확인하는 테스트")
     void 로또가_갯수에_맞게_구입되었는지_확인하는_테스트() {
 
-        Lottos purchaseLotto = lottoIssueMachine.purchaseLotto(purchaseMoney);
+        AutoLottos purchaseLotto = lottoIssueMachine.purchaseLotto(purchaseMoney);
 
-        assertThat(purchaseLotto.getLottoNumbers().size()).isEqualTo(purchaseMoney.getMoney() / LOTTO_PRICE);
+        assertThat(purchaseLotto.getAutoLottoNumbers().size()).isEqualTo(purchaseMoney.getMoney() / LOTTO_PRICE);
 
     }
 

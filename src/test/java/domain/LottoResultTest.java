@@ -25,7 +25,7 @@ class LottoResultTest {
 
     private LottoResult lottoResult;
 
-    private Lottos lottos;
+    private AutoLottos autoLottos;
 
     private RandomLottoGenerator randomLottoGenerator;
 
@@ -35,7 +35,7 @@ class LottoResultTest {
 
     @BeforeEach
     void setUp() {
-        lottos = new Lottos();
+        autoLottos = new AutoLottos();
         randomLottoGenerator = new RandomLottoGenerator();
         lottoIssueMachine = new LottoIssueMachine(randomLottoGenerator);
         lottoResult = new LottoResult();
@@ -43,14 +43,14 @@ class LottoResultTest {
 
         purchaseMoney = Money.from(1000);
 
-        lottos.getLottoNumbers().add(EXPECT_SECOND_RANKED_NUMBER);
+        autoLottos.getAutoLottoNumbers().add(EXPECT_SECOND_RANKED_NUMBER);
     }
 
     @Test
     @DisplayName("일치하는 로또번호를 제대로 갱신하는지 확인하는 테스트")
     void 일치하는_로또번호를_제대로_갱신하는지_확인하는_테스트() {
 
-        lottoResult.findMatchLottoCount(WINNER_NUMBER, lottos, bonusNumber);
+        lottoResult.findMatchLottoCount(WINNER_NUMBER, autoLottos, bonusNumber);
 
         assertThat(lottoResult.getMatchFoundCount().size()).isEqualTo(MATCH_FOUND_COUNT);
 
@@ -60,7 +60,7 @@ class LottoResultTest {
     @DisplayName("기대수익금을 제대로 계산하는지 테스트")
     void 기대수익금을_제대로_계산하는지_테스트() {
 
-        lottoResult.findMatchLottoCount(WINNER_NUMBER, lottos, bonusNumber);
+        lottoResult.findMatchLottoCount(WINNER_NUMBER, autoLottos, bonusNumber);
 
         double expectExpectMoney = lottoResult.calculateEarningRate(purchaseMoney);
 

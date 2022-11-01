@@ -9,16 +9,16 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import service.RandomLottoGenerator;
 
-class LottosTest {
+class AutoLottosTest {
 
     private RandomLottoGenerator randomLottoGenerator;
 
-    private Lottos lottos;
+    private AutoLottos autoLottos;
 
     @BeforeEach
     void setUp() {
         randomLottoGenerator = new RandomLottoGenerator();
-        lottos = new Lottos();
+        autoLottos = new AutoLottos();
     }
 
     @ParameterizedTest
@@ -26,9 +26,9 @@ class LottosTest {
     @DisplayName("구입 갯수만큼 로또가 구매되어졌는지 확인하는 테스트")
     void 구입_갯수만큼_로또가_구매되어졌는지_확인하는_테스트(int purchaseCnt, int expectedCnt) {
 
-        lottos.buyRandomLottos(randomLottoGenerator, purchaseCnt);
+        autoLottos.buyRandomLottos(randomLottoGenerator, purchaseCnt);
 
-        assertThat(lottos.getLottoNumbers().size()).isEqualTo(expectedCnt);
+        assertThat(autoLottos.getAutoLottoNumbers().size()).isEqualTo(expectedCnt);
 
     }
 

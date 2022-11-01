@@ -5,17 +5,17 @@ import java.util.List;
 
 import service.RandomLottoGenerator;
 
-public class Lottos {
+public class AutoLottos {
 
-    private List<Lotto> lottoNumbers = new ArrayList<>();
+    private List<Lotto> autoLottoNumbers = new ArrayList<>();
 
     public void buyRandomLottos(RandomLottoGenerator randomLottoGenerator, int purchaseCount) {
         for (int i = 0; i < purchaseCount; i++) {
-            lottoNumbers.add(randomLottoGenerator.createRandomLotto());
+            autoLottoNumbers.add(randomLottoGenerator.createRandomLotto());
         }
     }
 
-    public List<Lotto> getLottoNumbers() {
-        return lottoNumbers;
+    public List<Lotto> getAutoLottoNumbers() {
+        return autoLottoNumbers;
     }
 }

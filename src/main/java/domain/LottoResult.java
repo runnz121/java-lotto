@@ -17,9 +17,9 @@ public class LottoResult {
     public LottoResult() {
     }
 
-    public void findMatchLottoCount(Lotto winningLotto, Lottos lottos, BonusNumber bonusNumber) {
+    public void findMatchLottoCount(Lotto winningLotto, AutoLottos autoLottos, BonusNumber bonusNumber) {
 
-        for (Lotto randomLotto : lottos.getLottoNumbers()) {
+        for (Lotto randomLotto : autoLottos.getAutoLottoNumbers()) {
             List<Integer> matchNumberFounds = compareWinnerNumber(randomLotto, winningLotto);
 
             LottoWinnerRank ranking = LottoWinnerRank.findKey(matchNumberFounds.size());

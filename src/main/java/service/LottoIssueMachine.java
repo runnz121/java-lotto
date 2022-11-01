@@ -1,6 +1,6 @@
 package service;
 
-import domain.Lottos;
+import domain.AutoLottos;
 import domain.Money;
 
 public class LottoIssueMachine {
@@ -13,13 +13,13 @@ public class LottoIssueMachine {
         this.randomLottoGenerator = randomLottoGenerator;
     }
 
-    public Lottos purchaseLotto(Money money) {
+    public AutoLottos purchaseLotto(Money money, int manualLottoBuyCounts) {
 
         int purchasedCount = money.getMoney() / LOTTO_PRICE;
 
-        Lottos lottos = new Lottos();
-        lottos.buyRandomLottos(randomLottoGenerator, purchasedCount);
-        return lottos;
+        AutoLottos autoLottos = new AutoLottos();
+        autoLottos.buyRandomLottos(randomLottoGenerator, purchasedCount);
+        return autoLottos;
     }
 
 }
