@@ -15,10 +15,11 @@ public class LottoIssueMachine {
 
     public AutoLottos purchaseLotto(Money money, int manualLottoBuyCounts) {
 
-        int purchasedCount = money.getMoney() / LOTTO_PRICE;
+        int purchaseAutoLottoCounts = money.getMoney() / LOTTO_PRICE;
+        int totalPurchaseLottoCounts = purchaseAutoLottoCounts - manualLottoBuyCounts;
 
         AutoLottos autoLottos = new AutoLottos();
-        autoLottos.buyRandomLottos(randomLottoGenerator, purchasedCount);
+        autoLottos.buyRandomLottos(randomLottoGenerator, totalPurchaseLottoCounts);
         return autoLottos;
     }
 
